@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教學駕駛艙 ‧ 總覽</title>
+<style>
+:root{
+  --board:#22352e;--board2:#1b2a25;--frame:#6b4a2b;--frame2:#4f3620;
+  --chalk:#f4f1e6;--chalk-dim:#cdd3c8;--yellow:#ffe39f;--pink:#ff9ebb;--blue:#a7d8ff;--green:#b6f0a8;
+  --pen:'Segoe Print','Bradley Hand','Comic Sans MS',cursive;
+  --body:'Segoe UI','Microsoft JhengHei',system-ui,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;min-height:100%;}
+body{font-family:var(--body);background:#14201c;color:var(--chalk);padding:14px;}
+.board{
+  min-height:calc(100vh - 28px);border-radius:10px;padding:48px 40px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 140% at 12% 8%,#2c4239 0%,var(--board) 42%,var(--board2) 100%);
+  box-shadow:inset 0 0 0 3px #14201c,inset 0 0 60px rgba(0,0,0,.55);
+  border:12px solid transparent;
+  border-image:repeating-linear-gradient(90deg,var(--frame) 0 14px,var(--frame2) 14px 28px) 12;
+}
+.board::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;
+  background-image:radial-gradient(rgba(255,255,255,.7) 1px,transparent 1px);background-size:5px 5px;mix-blend-mode:screen;}
+.hd{text-align:center;margin-bottom:8px;position:relative;z-index:2;}
+.hd .t{font-family:var(--pen);font-size:42px;}
+.hd .s{font-size:13px;letter-spacing:4px;color:var(--chalk-dim);margin-top:4px;}
+.hd .line{width:160px;height:3px;margin:18px auto 0;background:repeating-linear-gradient(90deg,var(--yellow) 0 12px,transparent 12px 20px);border-radius:3px;}
+.intro{text-align:center;color:var(--chalk-dim);font-size:14px;max-width:620px;margin:20px auto 38px;line-height:1.7;position:relative;z-index:2;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;max-width:1000px;margin:0 auto;position:relative;z-index:2;}
+.card{
+  display:block;text-decoration:none;color:var(--chalk);
+  background:rgba(0,0,0,.22);border:2px solid rgba(244,241,230,.22);border-radius:16px;padding:22px 22px 20px;transition:.18s;
+}
+.card:hover{border-color:var(--yellow);background:rgba(255,227,159,.08);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.4);}
+.card .no{font-family:var(--pen);font-size:30px;color:var(--yellow);}
+.card .ti{font-family:var(--pen);font-size:23px;margin:4px 0 10px;}
+.card .de{font-size:13px;color:var(--chalk-dim);line-height:1.6;}
+.card .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
+.card .tag{font-size:11px;padding:3px 9px;border-radius:12px;border:1px solid rgba(244,241,230,.3);color:var(--chalk-dim);}
+.card .go{margin-top:14px;font-family:var(--pen);font-size:14px;color:var(--blue);}
+.card.soon{opacity:.5;cursor:default;}
+.card.soon:hover{transform:none;border-color:rgba(244,241,230,.22);background:rgba(0,0,0,.22);box-shadow:none;}
+.foot{text-align:center;color:var(--chalk-dim);font-size:12px;margin-top:44px;position:relative;z-index:2;}
+</style>
+</head>
+<body>
+<div class="board">
+  <div class="hd">
+    <div class="t">📐 教學駕駛艙 ‧ 總覽</div>
+    <div class="s">INTERACTIVE TEACHING COCKPITS</div>
+    <div class="line"></div>
+  </div>
+  <div class="intro">黑板粉筆風格的互動教學駕駛艙合集。每個單元整合 NotebookLM 簡報、資訊圖表、互動視覺化與形成性評量,並內建抽籤、計時器、粉筆等課堂工具。</div>
+
+  <div class="grid">
+    <a class="card" href="CH1/index.html">
+      <div class="no">01</div>
+      <div class="ti">組織行為學 ‧ 第一章</div>
+      <div class="de">組織行為學的基礎:定義與科學基礎、管理者十大角色、三層分析、權變觀點、OB 模型。</div>
+      <div class="tags"><span class="tag">5 大重點</span><span class="tag">15 張簡報</span><span class="tag">5 資訊圖表</span><span class="tag">互動 + 評量</span></div>
+      <div class="go">▶ 進入駕駛艙</div>
+    </a>
+
+    <!-- 日後新增章節：複製上面這張 <a class="card"> 卡片，改 no / ti / de / href 即可 -->
+    <div class="card soon">
+      <div class="no">＋</div>
+      <div class="ti">更多章節</div>
+      <div class="de">後續單元的教學駕駛艙會陸續上架到這裡。</div>
+      <div class="go">即將推出…</div>
+    </div>
+  </div>
+
+  <div class="foot">© 教學用途 ‧ 以 GitHub Pages 部署</div>
+</div>
+</body>
+</html>
