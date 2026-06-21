@@ -34,6 +34,8 @@ ob-cockpits/
 
 ## 新增一個駕駛艙
 
+詳細步驟見 **[新增章節SOP.md](新增章節SOP.md)**。摘要:
+
 1. 新增資料夾 `CHx/`,放入該單元的 `index.html` 與素材。
 2. 在根目錄 `index.html` 複製一張 `<a class="card">` 卡片,改連結與標題。
 3. commit、push,GitHub Pages 會自動更新。
