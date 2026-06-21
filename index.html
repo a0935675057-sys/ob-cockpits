@@ -43,6 +43,15 @@ body{font-family:var(--body);background:#14201c;color:var(--chalk);padding:14px;
 .card.soon{opacity:.5;cursor:default;}
 .card.soon:hover{transform:none;border-color:rgba(244,241,230,.22);background:rgba(0,0,0,.22);box-shadow:none;}
 .foot{text-align:center;color:var(--chalk-dim);font-size:12px;margin-top:44px;position:relative;z-index:2;}
+@media (max-width:600px){
+  body{padding:8px;}
+  .board{padding:30px 18px;border-width:8px;}
+  .hd .t{font-size:32px;}
+  .hd .s{font-size:11px;letter-spacing:2px;}
+  .intro{font-size:13px;margin:16px auto 26px;}
+  .grid{grid-template-columns:1fr;gap:16px;}
+  .card .ti{font-size:20px;}
+}
 </style>
 </head>
 <body>

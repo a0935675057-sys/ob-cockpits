@@ -375,6 +375,90 @@ textarea.names{width:100%;height:90px;background:rgba(0,0,0,.3);border:2px solid
 ::-webkit-scrollbar{width:9px;height:9px;}
 ::-webkit-scrollbar-thumb{background:rgba(244,241,230,.25);border-radius:8px;}
 ::-webkit-scrollbar-track{background:transparent;}
+
+/* ============================================================
+   響應式設計：手機 / 平板（直向）
+   ============================================================ */
+@media (max-width:860px){
+  html,body{height:auto;}
+  body{height:100dvh;overflow:hidden;}
+  #app{padding:5px;height:100dvh;}
+  .board{border-radius:8px;}
+
+  /* 頂部列：允許換行、縮小 */
+  .topbar{flex-wrap:wrap;gap:8px 12px;padding:8px 12px;}
+  .spacer{display:none;}
+  .brand .k{font-size:17px;}
+  .brand .s{font-size:9px;letter-spacing:1.2px;}
+  .progress-wrap{order:3;font-size:11px;gap:6px;}
+  .progress-bar{width:84px;}
+  .mode-toggle{font-size:13px;margin-left:auto;}
+
+  /* 主版面改為直向堆疊 */
+  .workspace{flex-direction:column;}
+  .sidebar{
+    width:100%;flex-shrink:0;border-right:none;
+    border-bottom:2px dashed rgba(244,241,230,.22);
+    padding:8px 10px;overflow-x:auto;overflow-y:hidden;
+  }
+  .sidebar h4{display:none;}
+  #tpNav{display:flex;gap:8px;}
+  .tp-btn{flex:0 0 auto;width:auto;min-width:138px;margin-bottom:0;padding:7px 12px;}
+  .tp-btn .d{display:none;}
+  .tp-btn .t{font-size:14px;}
+  .tp-check{float:none;margin-left:6px;}
+
+  /* 舞台：右側保留浮動工具列的空間，避免內容被蓋住 */
+  .stage{padding:10px 56px 8px 12px;}
+  .stage-head{gap:8px;}
+  .stage-head .tno{font-size:24px;}
+  .stage-head .ttitle{font-size:18px;}
+  .stage-obj{font-size:12px;margin-bottom:8px;}
+
+  /* 分頁：橫向捲動不換行 */
+  .tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;}
+  .tab{flex:0 0 auto;font-size:13px;padding:6px 12px;}
+
+  /* 互動視覺化改單欄 */
+  .iv-title{font-size:16px;}
+  .sim-grid{grid-template-columns:1fr;}
+  .buckets{grid-template-columns:1fr;gap:8px;}
+  .engine{font-size:11px;gap:6px;}
+  .engine .lvl{font-size:12px;}
+  .engine .eh{font-size:12px;}
+
+  /* 浮動工具列：縮小，留在右側中央 */
+  .tool-btn{width:46px;height:46px;font-size:20px;border-radius:13px;}
+  .tool-btn:hover{transform:none;}
+  .tool-btn .tip{display:none;}
+
+  /* 工具彈窗：置中、不超出畫面 */
+  .tool-popup{
+    left:50%!important;right:auto!important;top:auto!important;bottom:78px!important;
+    transform:translateX(-50%);width:min(92vw,320px);
+  }
+
+  /* 粉筆色盤可換行 */
+  .pen-palette{flex-wrap:wrap;justify-content:center;max-width:94vw;bottom:10px;gap:8px;padding:8px 12px;}
+
+  /* 輪播箭頭縮小 */
+  .nav-arrow{width:40px;height:40px;font-size:18px;}
+  .slide-count{font-size:13px;}
+
+  .video-bar{gap:6px;}
+  .video-bar input{min-width:160px;}
+}
+
+/* 更小的手機 */
+@media (max-width:480px){
+  .brand .s{display:none;}
+  .brand .k{font-size:16px;}
+  .stage-head .ttitle{font-size:16px;}
+  .stage-head .tno{font-size:20px;}
+  .engine{grid-template-columns:74px 1fr 1fr 1fr;font-size:10px;}
+  .tp-btn{min-width:120px;}
+  .tool-btn{width:42px;height:42px;font-size:18px;}
+}
 </style>
 </head>
 <body data-mode="teacher">
@@ -712,6 +796,8 @@ TP.forEach((tp,i)=>{
 function selectTP(i){
   curTP=i;
   document.querySelectorAll('.tp-btn').forEach(b=>b.classList.toggle('active',+b.dataset.i===i));
+  const ab=document.querySelector('.tp-btn.active');
+  if(ab)ab.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
   const tp=TP[i];
   document.getElementById('stageNo').textContent=tp.no;
   document.getElementById('stageTitle').textContent=tp.title;
@@ -1233,7 +1319,8 @@ document.querySelectorAll('[data-drag]').forEach(h=>{
     const p=document.getElementById(h.dataset.drag);
     const r=p.getBoundingClientRect();
     const offX=e.clientX-r.left, offY=e.clientY-r.top;
-    p.style.right='auto';
+    p.style.right='auto'; p.style.bottom='auto'; p.style.transform='none';
+    p.style.left=r.left+'px'; p.style.top=r.top+'px';
     function mv(ev){p.style.left=(ev.clientX-offX)+'px';p.style.top=(ev.clientY-offY)+'px';}
     function up(){document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up);}
     document.addEventListener('mousemove',mv);document.addEventListener('mouseup',up);
