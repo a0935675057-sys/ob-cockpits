@@ -1,5 +1,9 @@
 # 教學駕駛艙 ‧ Interactive Teaching Cockpits
 
+> ### 🚀 線上看(點這裡進入網站)
+> - **總覽入口頁:<https://a0935675057-sys.github.io/ob-cockpits/>**
+> - 第一章直達:<https://a0935675057-sys.github.io/ob-cockpits/CH1/>
+
 黑板粉筆風格的互動教學駕駛艙合集,以 GitHub Pages 部署,提供學生線上自學與課堂教學使用。
 
 每個單元整合:
@@ -13,11 +17,10 @@
 
 ## 線上網址
 
-部署後的入口頁(總覽):`https://<你的帳號>.github.io/ob-cockpits/`
-
 | 單元 | 連結 |
 | --- | --- |
-| 組織行為學 ‧ 第一章 | `CH1/` |
+| 總覽入口頁 | <https://a0935675057-sys.github.io/ob-cockpits/> |
+| 組織行為學 ‧ 第一章 | <https://a0935675057-sys.github.io/ob-cockpits/CH1/> |
 
 ## 目錄結構
 
